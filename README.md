@@ -1,5 +1,5 @@
 # PDF question-answering chatbot 🗣️📄
-An NLP 'chatbot' able to comprehend user query and answer based on information in a given PDF file. Making good use of Haystack v1.25's ready-to-use ExtractiveQAPipeline to retrieve relevant excerpts and passing it to the reader for further comprehension. The answers are then scored and presented to the user.
+A relatively simple NLP 'chatbot' able to comprehend user query and answer based on information in a given PDF file. Making good use of Haystack v1.25's ready-to-use ExtractiveQAPipeline to retrieve relevant excerpts and passing it to the reader for further comprehension. The answers are then scored and presented to the user.
 
 This project **does not** make use of OpenAI's API nor any other API calls.
 
