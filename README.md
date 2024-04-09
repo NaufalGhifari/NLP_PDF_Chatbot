@@ -10,10 +10,18 @@ How it works:
 - Connect retriever and reader using ExtractiveQAPipeline
 - Run the pipeline and predict the answer to a given query
 
+## Option 1: Clone repo and run
+- Clone this repo and ```cd``` to the cloned dir
+- ```streamlit run app.py```
+- Access the web app at http://localhost:8501
+- You are using the application
+
+## Option 2: Use the Docker image
+- Currently still WIP 👷‍♂️🔨
+
 ## Libraries 📚
 - [Haystack](https://haystack.deepset.ai/)
 - [Streamlit](https://streamlit.io/)
-
 
 ## References:
 - Haystack v1.25 ExtractiveQAPipeline documentation: https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline
