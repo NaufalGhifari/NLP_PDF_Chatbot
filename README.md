@@ -12,12 +12,13 @@ How it works:
 
 ## Option 1: Clone repo and run
 - Clone this repo and ```cd``` to the cloned dir
-- ```streamlit run app.py```
+- run ```streamlit run app.py``` in the cli
 - Access the web app at http://localhost:8501
 - You are using the application
 
-## Option 2: Use the Docker image
-- Currently still WIP 👷‍♂️🔨
+## Option 2: Use the Docker file
+- Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- Build the image on your end using ```docker build -t naufal_pdf_qa_chatbot_v1:1.0 .```
 
 ## Libraries 📚
 - [Haystack](https://haystack.deepset.ai/)
