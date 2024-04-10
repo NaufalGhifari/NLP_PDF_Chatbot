@@ -18,6 +18,8 @@ with st.sidebar:
     ### Libraries
     - [Streamlit](https://streamlit.io/)
     - [Haystack (v1.25)](https://haystack.deepset.ai/)
+    - [NLTK](https://www.nltk.org/)
+    - [PyTorch](https://pytorch.org/)
                 
     ### How it works:
     1. Takes a pdf
@@ -27,8 +29,19 @@ with st.sidebar:
     5. Process user query & display answer
     ''')
 
-    add_vertical_space(7)
+    add_vertical_space(5)
     st.write("Author: Muhammad Naufal Al Ghifari")
+
+def print_answer(ans):
+    """Prints out the answers data. Return: Void."""
+    ans_text = ans.answer
+    context = ans.context
+    score = ans.score
+
+    st.write(f"**Answer**:\n{ans_text}")
+    st.write(f"**Score**:\n{round(score*100, 2)}%")
+    st.write(f"**Context**:\n{context}")
+    st.markdown("""---""")
 
 def main():
     st.header("Query your PDF🗣️📄")
@@ -65,6 +78,9 @@ def main():
         # get user query
         user_query = st.text_input("Ask a question about your PDF here:")
 
+        # get minimal confidence score
+        min_confidence = st.slider("Minimal confidence score", 0.0, 1.0, 0.1)
+
         if user_query:
             # process query
             prediction = pipe.run(
@@ -76,20 +92,28 @@ def main():
             # display the answers            
             answers = prediction['answers']
 
-            st.write(f"#### {len(answers)} answers found:\n\n")
+            # lists to store answers
+            high_conf_answers = []
+            low_conf_answers = []
 
+            # display answers with confidence score abov min_confidence
             for i in range(len(answers)):
                 ans = answers[i]
-                ans_text = ans.answer
-                context = ans.context
-                score = ans.score
+                if (ans.score >= min_confidence):
+                    high_conf_answers.append(ans)
+                else:
+                    low_conf_answers.append(ans)
 
-                st.write(f"**Answer {i+1}**:\n{ans_text}")
-                st.write(f"**Score**:\n{round(score*100, 2)}%")
-                st.write(f"**Context**:\n{context}")
-                st.markdown("""---""") 
+            # print answers
+            st.write(f"#### {len(high_conf_answers)} answers found ():\n\n")
+            for ans in high_conf_answers:
+                print_answer(ans)
 
-            # delete by overwriting the user's extracted data
+            st.write(f"#### {len(low_conf_answers)} less relevant answers found:\n\n")
+            for ans in low_conf_answers:
+                print_answer(ans)
+
+            # delete by overwriting the user's extracted data with '''
             with open(f"data.txt", "w", encoding="utf-8") as f:
                 f.write("")
 

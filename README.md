@@ -10,19 +10,27 @@ How it works:
 - Connect retriever and reader using ExtractiveQAPipeline
 - Run the pipeline and predict the answer to a given query
 
-## Option 1: Clone repo and run
+## Features:
+- Drag and drop file upload.
+- Minimal confidence score slider.
+- Does not keep users' data: Auto wipe the extracted data at the end of the process.
+
+## How to run:
+### Option 1: Clone repo and run
 - Clone this repo and ```cd``` to the cloned dir
 - run ```streamlit run app.py``` in the cli
 - Access the web app at http://localhost:8501
 - You are using the application
 
-## Option 2: Use the Docker file
+### Option 2: Use the Docker file
 - Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Build the image on your end using ```docker build -t naufal_pdf_qa_chatbot_v1:1.0 .```
 
 ## Libraries 📚
 - [Haystack](https://haystack.deepset.ai/)
 - [Streamlit](https://streamlit.io/)
+- [NLTK](https://www.nltk.org/)
+- [PyTorch](https://pytorch.org/)
 
 ## References:
 - Haystack v1.25 ExtractiveQAPipeline documentation: https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline

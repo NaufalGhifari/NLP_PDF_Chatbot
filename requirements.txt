@@ -1,4 +1,8 @@
+# make sure to upgrade streamlit-exrtras after install: "pip install --upgrade streamlit-extras" otherwise it will raise a ModuleNotFoundError
+
+nltk
 PyPDF2==3.0.1
 streamlit==1.18.1
 streamlit-extras
 altair==4.0
+'farm-haystack[inference]' # if package is not found, remove the single quotes
