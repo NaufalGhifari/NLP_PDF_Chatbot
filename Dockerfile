@@ -1,7 +1,5 @@
-""" 
-Dockerfile: contains a set of docker instructions to build a docker image.
-To build the docker image, run 'docker build -t naufal_pdf_qa_chatbot_v1:1.0 .'
-"""
+# Dockerfile: contains a set of docker instructions to build a docker image.
+# To build the docker image, run 'docker build -t naufal_pdf_qa_chatbot_v1:1.0 .'
 
 # use python base image
 FROM python:3.9-slim
